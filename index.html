@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/scrolling-nav.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Text Summarizer</title>
+    <!-- <link rel="shortcut icon" href="./avatar/blank.ico" /> -->
+    <!-- <link rel="stylesheet" href="style/bootstrap.min.css"> -->
+
+    <!--Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Propeller css -->
+    <link href="style/propeller.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+
+    <!--Animate css -->
+    <link rel="stylesheet" href="style/animate.min.css">
+
+    <!-- <script data-main="js/require-setup" src="require.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+    <script src="js/src/app.js"></script>
+
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Web Summarizer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Implementation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Roadmap</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        
+        <img class="img-responsive" style="border-radius:50%;border:3px solid white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0);height:90px;margin-top: -8%;margin-bottom: 1%;" src="./images/summarizer-header-image.png" />
+        <h1 style="font-size:40px;">Welcome to Web Summarizer</h1>
+        <p class="lead">A web application to showcase text summarization using NLP</p>
+        <div class="form-group">
+           <!-- <label for="regular1" class="control-label">Regular Input</label> -->
+           <div class="col-xs-9">
+           <input type="text" id="textfield" class="form-control" autofocus tabindex="1" placeholder="Paste URL here . . . " required>
+         </div>
+
+         <div class="submit-btn col-sx-3" style="margin-top:2%">
+           <button type="button" id="submit-btn-id" value="input url" class="btn btn-primary" style="background-color:#1b2739">Get Summary</button >
+         </div>
+      </div>
+
+      <div class="alert alert-info" role="alert" id="warning-wrapper" style="display:none">
+      	<div id="warning-message"></div>
+      </div>
+
+      <div class="alert alert-danger animated fadeIn" role="alert" id="alert-wrapper" style="display:none">
+        <div id="alert-message"></div>
+      </div>
+
+      <div class="wrapper" id="resultDetails" style="display:none;font-family: Arial;color: #808080;text-align: center;	">
+        <div class="row">
+          <div class="col-md-6 animated fadeInLeft">
+            <div class="counter">
+              <i class="fa fa-code fa-2x"></i>
+              <h2  id="word-counter" class="timer count-title count-number"></h2>
+               <p class="count-text ">Summarized Words</p>
+            </div>
+            <!-- <div class="word-counter-body detail-body animated fadeInLeft">
+              <div id="word-counter"></div>
+
+            </div> -->
+          </div>
+          <div class="col-md-6 animated fadeInRight">
+            <div class="counter">
+              <i class="fa fa-cogs fa-2x"></i>
+              <h2 id="compression" class="timer count-title count-number"></h2>
+              <p class="count-text ">Compression Factor</p>
+            </div>
+            <!-- <div class="word-compression-body detail-body animated fadeInRight">
+              <div id="compression"></div>
+
+            </div> -->
+          </div>
+          </div>
+
+        </div>
+
+      <div id="resultRow" style="display:none;">
+          <div class="summary-body animated fadeInUp">
+            <div class="text-center"></div>
+            <h2 id="result-title"></h2>
+            <p id="result" style="text-align:left"></p>
+          </div>
+      </div>
+      </div>
+
+      <!-- <div class="row text-center"> -->
+        <!-- <div class="col-md-offset-3 col-md-6">
+          <div class="form-group">
+
+             <div class="col-xs-9">
+             <input type="text" id="textfield" class="form-control">
+           </div>
+
+           <div class="submit-btn col-sx-3">
+             <button type="button" id="submit-btn-id" value="input url" class="btn btn-primary" >Go</button >
+           </div>
+        </div>
+      </div> -->
+
+    </div>
+
+    </header>
+
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-lg-4 mx-auto">
+            <img class="img-responsive" style="border-radius:50%;border:3px solid white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0);height:90px;"
+                src="./images/algorithm-image.png" />
+          </div> -->
+          <div class="col-lg-8 mx-auto">
+            <h1><b>About this App</b></h1>
+            <p class="lead">This is a webapp that scrapes data from the URL provided and does a summary using NLP functionalities. It uses Text Processing libraries using Naive Bayes Algorithm to take out priority phrases into sensible and contextual summaries.</p>
+            <ul>
+              <li>In machine learning, Naive Bayes Classifiers are a family of simple probabilistic classifiers.</li>
+              <li>This theorem implements strong (naive) independence assumptions between the features.</li>
+              <li>For some types of probability models, Naive Bayes classifiers can be trained very efficiently in a supervised learning setting.</li>
+              <li>Despite their naive design and apparently oversimplified assumptions, naive Bayes classifiers have worked quite well in many complex real-world situations.</li>
+            </ul>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <section id="services" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1><b>Logic Implementation</b></h1>
+            <p class="lead">This functionality is completely re-usable as a plug and play system in any application where it has to scrape data off the web without using unncessary data irrelevant to the context of the use-case. This is only for Descriptive Websites and not item based ones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1><b>The Next Step</b></h1>
+            <p class="lead">The next generation applications will involve more open-ended queries rather than closed use-case specific queries especially with the implementation of Re-inforcement learning in Statistical ML Models. This is a roadmap to where we have to go as the next step.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">A Proof by Pourab Karchaudhuri</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>
