@@ -32,6 +32,14 @@
     <link rel="stylesheet" href="src/styles/animate.min.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+    <script>
+        $(window).load(function() {
+    		// Animate loader off screen
+    		$(".se-pre-con").fadeOut("slow");
+    	});
+    </script>
 
     <script src="src/scripts/app.js"></script>
 
@@ -39,7 +47,7 @@
   </head>
 
   <body id="page-top">
-
+    <div class="se-pre-con"></div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
@@ -87,7 +95,7 @@
       <div class="alert alert-danger animated fadeIn" role="alert" id="alert-wrapper" style="display:none">
         <div id="alert-message"></div>
       </div>
-      
+
       <div class="wrapper" id="resultDetails" style="display:none;font-family: Arial;color: #808080;text-align: center;	">
         <div class="row">
           <div class="col-md-6 animated fadeInLeft">
