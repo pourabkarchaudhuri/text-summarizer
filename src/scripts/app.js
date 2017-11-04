@@ -35,8 +35,8 @@ function sendMessage(){
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/api/scraper",
-    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    // url: "http://localhost:5000/api/scraper",
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
     data: {url: url},
     success: function(response){
       // console.log(response);
