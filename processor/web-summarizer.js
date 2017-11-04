@@ -59,7 +59,7 @@ module.exports={
               console.log("API Status : " + status);
               data ={
                 "error_status" : true,
-                "error" : "The Webpage is Locked to Scraping or Website has lack of data. Please check the url.",
+                "error" : "Looks like this webpage is not letting me read it or there aren't enough data to summarize.",
                 "status" : status
               }
             }
