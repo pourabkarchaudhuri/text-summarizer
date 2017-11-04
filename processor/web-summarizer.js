@@ -6,6 +6,7 @@ module.exports={
       var data;
 
       summary.summarize(url, function(result, summary, failure) {
+        var date = new Date();
           if (failure) {
               console.log("An error occured! " + result.error);
               status = 503;
@@ -30,7 +31,7 @@ module.exports={
                   compression*=compression*100;
                   status = 200;
                   var result = result.summary.join(". ");
-                  console.log("API Status : " + status);
+                  console.log("["+date+"]" + "POST /api/scraper HTTP/1.1 "+status);
 
                   data ={
                     "title" : title,
@@ -45,7 +46,7 @@ module.exports={
                 else{
 
                   status = 401
-                  console.log("API Status : " + status);
+                  console.log("["+date+"]" + "POST /api/scraper HTTP/1.1 "+status);
                   data ={
                     "error_status" : true,
                     "error" : "This Webpage does not have enough data to summarize. Try another webpage URL.",
@@ -56,7 +57,7 @@ module.exports={
             else{
 
               status = 402
-              console.log("API Status : " + status);
+              console.log("["+date+"]" + "POST /api/scraper HTTP/1.1 "+status);
               data ={
                 "error_status" : true,
                 "error" : "Looks like this webpage is not letting me read it or there aren't enough data to summarize.",

@@ -54,4 +54,5 @@ app.post('/api/scraper', function(req, res) {
 
 // start the server
 app.listen(port);
-console.log('Server started! At ' + process.env.DOMAIN + ':' + port);
+var date = new Date();
+console.log("["+date+"]" + "Starting server : " + process.env.DOMAIN + ":" + port);
