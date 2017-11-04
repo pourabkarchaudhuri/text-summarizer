@@ -1,6 +1,40 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var pkg = require('./package.json');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var minify = require('gulp-minify-css');
+var imagemin = require('gulp-imagemin');
+var pump = require('pump');
+
+gulp.task('imagemin', () =>
+    gulp.src('images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/images'))
+);
+
+gulp.task('js', function (cb) {
+  pump([
+        gulp.src('js/src/*.js'),
+        uglify(),
+        gulp.dest('build/scripts')
+    ],
+    cb
+  );
+});
+
+gulp.task('css', function(){
+   gulp.src('style/*.css')
+   .pipe(concat('animate.min.css'))
+   .pipe(concat('bootstrap.min.css'))
+   .pipe(concat('scrolling-nav.css'))
+   .pipe(concat('style.css'))
+   .pipe(minify())
+   .pipe(gulp.dest('build/styles/'));
+});
+
+gulp.task('default',['js','css'],function(){
+});
 
 // Copy vendor files from /node_modules into /vendor
 // NOTE: requires `npm install` before running!
