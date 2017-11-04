@@ -23,6 +23,8 @@ var websummarizer = require('./processor/web-summarizer');
 // grab the packages we need
 var express = require('express');
 var bodyParser = require('body-parser');
+require('dotenv').config()
+
 app = express(),
 http = require('http'),
 httpServer = http.Server(app);
@@ -50,8 +52,6 @@ app.post('/api/scraper', function(req, res) {
     //res.send("The POST call has been successfully made with data : URL : "+url);
 });
 
-
-
 // start the server
 app.listen(port);
-console.log('Server started! At http://localhost:' + port);
+console.log('Server started! At ' + process.env.DOMAIN + ':' + port);

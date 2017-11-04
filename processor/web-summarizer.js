@@ -4,6 +4,7 @@ module.exports={
       var summary = require('node-tldr');
       var status;
       var data;
+
       summary.summarize(url, function(result, summary, failure) {
           if (failure) {
               console.log("An error occured! " + result.error);
@@ -53,7 +54,7 @@ module.exports={
                 }
             }
             else{
-          
+
               status = 402
               console.log("API Status : " + status);
               data ={
