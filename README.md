@@ -16,9 +16,8 @@ The Web Summarizer is an one page starter web application to summarize text by s
 ## Download and Installation
 
 To begin using this framework, choose one of the following options to get started:
-* [Download the latest release on Start
-* Clone the repo: `git clone https://github.com/pourabkarchaudhuri/text-summarizer.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/pourabkarchaudhuri/text-summarizer)
+* Clone the repo: `git clone https://github.com/pourabkarchaudhuri/web-summarizer.git`
+* [Fork, Clone, or Download on GitHub](https://github.com/pourabkarchaudhuri/web-summarizer)
 
 ## Usage
 

@@ -4,7 +4,7 @@
   "description": "A web application to showcase text summarization using NLP",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pourabkarchaudhuri/text-summarizer"
+    "url": "https://github.com/pourabkarchaudhuri/web-summarizer"
   },
   "main": "index.js",
   "scripts": {
