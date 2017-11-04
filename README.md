@@ -6,6 +6,8 @@ The Web Summarizer is an one page starter web application to summarize text by s
 
 ## Preview
 
+**[View Live Preview](https://peaceful-brushlands-95589.herokuapp.com/)**
+
 ![Scrolling Nav Preview](https://image.ibb.co/h4Uvvw/cover.png)
 
 **[View Live Preview](https://peaceful-brushlands-95589.herokuapp.com/)**
