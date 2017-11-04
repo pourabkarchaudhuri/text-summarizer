@@ -6,7 +6,7 @@ The Web Summarizer is an one page starter web application to summarize text by s
 
 ## Preview
 
-[![Scrolling Nav Preview](https://startbootstrap.com/assets/img/templates/scrolling-nav.jpg)](https://blackrockdigital.github.io/startbootstrap-scrolling-nav/)
+[![Scrolling Nav Preview](https://image.ibb.co/h4Uvvw/cover.png)
 
 **[View Live Preview](https://peaceful-brushlands-95589.herokuapp.com/)**
 
@@ -41,7 +41,7 @@ Web Summarizer uses uses a number of open source projects to work properly. The 
 
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
+* [Express] - fast node.js network app framework
 * [Gulp] - the streaming build system
 * [jQuery] - duh
 
