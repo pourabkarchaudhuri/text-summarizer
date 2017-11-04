@@ -1,14 +1,18 @@
 {
   "name": "text-summarizer",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.9",
+  "description": "A web application to showcase text summarization using NLP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pourabkarchaudhuri/text-summarizer"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pourab Karchaudhuri",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
