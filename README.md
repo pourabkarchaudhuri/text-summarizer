@@ -10,11 +10,6 @@ The Web Summarizer is an one page starter web application to summarize text by s
 
 **[View Live Preview](https://peaceful-brushlands-95589.herokuapp.com/)**
 
-## Status
-[![npm version](https://img.shields.io/npm/v/startbootstrap-scrolling-nav.svg)](https://www.npmjs.com/package/startbootstrap-scrolling-nav)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-scrolling-nav.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-scrolling-nav)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-scrolling-nav/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-scrolling-nav)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-scrolling-nav/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-scrolling-nav?type=dev)
 
 ## Download and Installation
 
