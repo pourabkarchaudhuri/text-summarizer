@@ -84,8 +84,8 @@ function sendMessage(){
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/api/scraper",
-    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    //url: "http://localhost:5000/api/scraper",
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
     data: {url: url},
     success: function(response){
       // console.log(response);
@@ -134,8 +134,8 @@ function sendText(){
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/api/parser",
-    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    //url: "http://localhost:5000/api/parser",
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/parser",
     data: {text: text},
     success: function(response){
       // console.log(response);
@@ -185,8 +185,8 @@ function sendFile(){
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/api/upload",
-    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    //url: "http://localhost:5000/api/upload",
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/upload",
     data: form,
     mimeType: "multipart/form-data",
     async: true,
