@@ -78,8 +78,37 @@
         <img class="img-responsive" style="border-radius:50%;border:3px solid white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0);height:90px;margin-top: -8%;margin-bottom: 1%;" src="./images/summarizer-header-image.png" />
         <h1 style="font-size:40px;">Welcome to Web Summarizer</h1>
         <p class="lead">A web application to showcase text summarization using NLP</p>
-        <div class="form-group">
-           <!-- <label for="regular1" class="control-label">Regular Input</label> -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="submit-btn col-sx-3" style="margin-top:2%">
+              <button type="button" id="web-summarizer-btn" value="input url" class="btn btn-primary" style="background-color:#1b2739;margin-bottom: 1%;">URL</button >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="submit-btn col-sx-3" style="margin-top:2%">
+              <button type="button" id="text-summarizer-btn" value="input text" class="btn btn-primary" style="background-color:#1b2739;margin-bottom: 1%;">Text</button >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="submit-btn col-sx-3" style="margin-top:2%">
+              <button type="button" id="file-summarizer-btn" value="input file" class="btn btn-primary" style="background-color:#1b2739;margin-bottom: 1%;">PDF</button >
+            </div>
+          </div>
+        </div>
+<!--Text Scraper Form-->
+        <div class="form-group animated fadeIn" id="text-summarizer-form">
+          <div class="col-xs-9">
+            <textarea id="textarea-txt" required class="form-control" autofocus tabindex="1" placeholder="Type or Paste text here to be summarized . . ."></textarea>
+          </div>
+
+          <div class="submit-btn col-sx-3" style="margin-top:2%">
+            <button type="button" id="submit-btn-id-text" value="input url" class="btn btn-primary" style="background-color:#1b2739;margin-bottom: 1%;">Get Summary</button >
+          </div>
+        </div>
+
+<!--Web Scraper Form-->
+        <div class="form-group animated fadeIn" id="web-summarizer-form">
            <div class="col-xs-9">
            <input type="text" id="textfield" class="form-control" autofocus tabindex="1" placeholder="Paste URL here . . . " required>
          </div>
@@ -89,6 +118,17 @@
          </div>
       </div>
 
+<!--Document Scraper Form-->
+        <div class="form-group animated fadeIn" id="file-summarizer-form">
+          <div class="col-xs-9">
+            <input type="file" id="file-input" required class="form-control" name="doc" accept="application/pdf"></input>
+          </div>
+
+          <div class="submit-btn col-sx-3" style="margin-top:2%">
+            <input type="submit" id="file-upload" class="btn btn-primary" style="background-color:#1b2739;margin-bottom: 1%;"></input >
+          </div>
+        </div>
+<!--Alerts-->
       <div class="alert alert-info animated fadeIn" role="alert" id="warning-wrapper" style="display:none">
       	<div id="warning-message"></div>
       </div>
@@ -96,7 +136,7 @@
       <div class="alert alert-danger animated fadeIn" role="alert" id="alert-wrapper" style="display:none">
         <div id="alert-message"></div>
       </div>
-
+<!--Response-->
       <div class="wrapper" id="resultDetails" style="display:none;font-family: Arial;color: #808080;text-align: center;	">
         <div class="row">
           <div class="col-md-6 animated fadeInLeft">

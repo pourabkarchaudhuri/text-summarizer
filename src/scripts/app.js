@@ -1,24 +1,73 @@
 'use strict';
 
 $(function () {
-$("#warning-wrapper").hide();
-$("#resultRow").hide();
-$("#resultDetails").hide()
-$("#alert-wrapper").hide();
-$('#submit-btn-id').on('click', function () {
-    sendMessage();
-  });
+//On Page load behavior
+    $("#web-summarizer-form").hide();
+    $("#warning-wrapper").hide();
+    $("#resultRow").hide();
+    $("#resultDetails").hide()
+    $("#alert-wrapper").hide();
+    $("#text-summarizer-form").hide();
+    $("#file-summarizer-form").hide();
 
-  $("#textfield").keypress(function (e) {
+    //on Click web module button
+    $('#web-summarizer-btn').on('click', function () {
+      $("#alert-wrapper").hide();
+      $("#warning-wrapper").hide();
+      $("#text-summarizer-form").hide();
+      $("#file-summarizer-form").hide();
+      $("#web-summarizer-form").show()
+    });
+    //on click submit on web module form
+    $('#submit-btn-id').on('click', function () {
+        sendMessage();
+    });
+    //on enter hit on submit on web module form
+    $("#textfield").keypress(function (e) {
       if (e.which == 13) {
           if($.trim($(this).val())!=""){
             sendMessage();
           }
       }
-  });//Enter Button 13 Trigger
+    });
+    //on Click text module button
+    $('#text-summarizer-btn').on('click', function () {
+      $("#alert-wrapper").hide();
+      $("#warning-wrapper").hide();
+      $("#web-summarizer-form").hide();
+      $("#file-summarizer-form").hide();
+      $("#text-summarizer-form").show()
+    });
 
+    //on click submit on text module form
+    $('#submit-btn-id-text').on('click', function () {
+        sendText();
+    });
+
+    //on enter hit on submit on text module form
+    $("#textarea-txt").keypress(function (e) {
+        if (e.which == 13) {
+            if($.trim($(this).val())!=""){
+              sendText();
+            }
+        }
+    });
+
+    //on Click Doc module button
+    $('#file-summarizer-btn').on('click', function () {
+      $("#alert-wrapper").hide();
+      $("#warning-wrapper").hide();
+      $("#text-summarizer-form").hide();
+      $("#web-summarizer-form").hide();
+      $("#file-summarizer-form").show();
+    });
+    //on click submit on doc module form
+    $('#file-upload').on('click', function () {
+        sendFile();
+    });
 });//end of document ready
 
+//web scraper api call
 function sendMessage(){
   var url = $('#textfield').val();
 
@@ -35,8 +84,8 @@ function sendMessage(){
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     type: "POST",
-    // url: "http://localhost:5000/api/scraper",
-    url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    url: "http://localhost:5000/api/scraper",
+    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
     data: {url: url},
     success: function(response){
       // console.log(response);
@@ -64,6 +113,111 @@ function sendMessage(){
       }
     },
     dataType: "JSON"
+    });
+  }
+}
+//text scraper api call
+function sendText(){
+
+  var text = $('#textarea-txt').val();
+
+  if(text==null||text==undefined||text==""){
+
+    //$("#resultRow").hide();
+  //  $("#resultDetails").hide();
+    $("#warning-message").html("Place some in the text field to begin summarization.");
+    $("#warning-wrapper").show();
+    $("#textarea-txt").val("");
+  }
+  else{
+  var target = $('#submit-btn-id-text');
+  target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:5000/api/parser",
+    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    data: {text: text},
+    success: function(response){
+      // console.log(response);
+      if(response.error_status==false){
+      target.html(target.attr('data-og-text'));
+      $("#word-counter").html(response.words);
+      $("#alert-wrapper").hide();
+      $("#warning-wrapper").hide();
+        // $("#word-counter").focus();
+      $("#compression").html(response.compression);
+      $("#result-title").html("");
+      $("#result").html(response.summary);
+      $("#resultRow").show();
+      $("#resultDetails").show();
+      $("#textarea-txt").val("");
+      }
+      else{
+        target.html(target.attr('data-og-text'));
+        $("#warning-wrapper").hide();
+        $("#resultRow").hide();
+        $("#resultDetails").hide();
+        $("#alert-message").html(response.error);
+        $("#alert-wrapper").show();
+        $("#textarea-txt").val("");
+      }
+    },
+    dataType: "JSON"
+    });
+  }
+}
+
+function sendFile(){
+
+  var path = $('#file-input').val();
+
+  if(path==null||path==undefined||path==""){
+
+    //$("#resultRow").hide();
+  //  $("#resultDetails").hide();
+    $("#warning-message").html("Attach a file to begin summarization.");
+    $("#warning-wrapper").show();
+  }
+  else{
+  var target = $('#file-upload');
+  var form = new FormData();
+
+  target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:5000/api/upload",
+    // url: "https://peaceful-brushlands-95589.herokuapp.com/api/scraper",
+    data: form,
+    mimeType: "multipart/form-data",
+    async: true,
+    crossDomain: true,
+    processData: false,
+    contentType: false,
+    success: function(response){
+      // console.log(response);
+      if(response.error_status==false){
+      target.html(target.attr('data-og-text'));
+      $("#word-counter").html(response.words);
+      $("#alert-wrapper").hide();
+      $("#warning-wrapper").hide();
+        // $("#word-counter").focus();
+      $("#compression").html(response.compression);
+      $("#result-title").html("");
+      $("#result").html(response.summary);
+      $("#resultRow").show();
+      $("#resultDetails").show();
+
+      }
+      else{
+        target.html(target.attr('data-og-text'));
+        $("#warning-wrapper").hide();
+        $("#resultRow").hide();
+        $("#resultDetails").hide();
+        $("#alert-message").html(response.error);
+        $("#alert-wrapper").show();
+
+      }
+    }
     });
   }
 }
