@@ -61,10 +61,7 @@ $(function () {
       $("#web-summarizer-form").hide();
       $("#file-summarizer-form").show();
     });
-    //on click submit on doc module form
-    $('#file-upload').on('click', function () {
-        sendFile();
-    });
+    
 });//end of document ready
 
 //web scraper api call
@@ -167,36 +164,26 @@ function sendText(){
   }
 }
 
-function sendFile(){
+function upload() {
 
-  var path = $('#file-input').val();
+  var fd = new FormData(),
+      myFile = document.getElementById("file").files[0];
 
-  if(path==null||path==undefined||path==""){
-
-    //$("#resultRow").hide();
-  //  $("#resultDetails").hide();
-    $("#warning-message").html("Attach a file to begin summarization.");
-    $("#warning-wrapper").show();
-  }
-  else{
-  var target = $('#file-upload');
-  var form = new FormData();
-
+  fd.append( 'file',  myFile);
+  var target = $('#file-upload-btn');
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
-    type: "POST",
-    //url: "http://localhost:5000/api/upload",
-    url: "https://peaceful-brushlands-95589.herokuapp.com/api/upload",
-    data: form,
-    mimeType: "multipart/form-data",
-    async: true,
-    crossDomain: true,
+    //url: 'http://localhost:5000/api/upload',
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/parser",
+    data: fd,
     processData: false,
     contentType: false,
+    type: 'POST',
     success: function(response){
-      // console.log(response);
+      console.log(response);
       if(response.error_status==false){
       target.html(target.attr('data-og-text'));
+      $("#file").val('')
       $("#word-counter").html(response.words);
       $("#alert-wrapper").hide();
       $("#warning-wrapper").hide();
@@ -218,6 +205,5 @@ function sendFile(){
 
       }
     }
-    });
-  }
+  });
 }
