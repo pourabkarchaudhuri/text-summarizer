@@ -61,7 +61,7 @@ $(function () {
       $("#web-summarizer-form").hide();
       $("#file-summarizer-form").show();
     });
-    
+
 });//end of document ready
 
 //web scraper api call
@@ -174,7 +174,7 @@ function upload() {
   target.attr('data-og-text', target.html()).html("<i class='fa fa-cog fa-spin'></i>");
   $.ajax({
     //url: 'http://localhost:5000/api/upload',
-    url: "https://peaceful-brushlands-95589.herokuapp.com/api/parser",
+    url: "https://peaceful-brushlands-95589.herokuapp.com/api/upload",
     data: fd,
     processData: false,
     contentType: false,
